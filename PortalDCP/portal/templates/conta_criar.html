@@ -11,10 +11,12 @@
                     {{ form.nome.label(class="form-label") }}<br>
                     {{ form.nome(class="form-control") }}
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.nomeGuerra.label(class="form-label") }}<br>
                     {{ form.nomeGuerra(class="form-control") }}
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.rg.label(class="form-label") }}
                     {% if form.rg.errors %}
@@ -28,6 +30,7 @@
                         {{ form.rg(class="form-control") }}
                     {% endif %}
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.idFuncional.label(class="form-label") }}
                  {% if form.idFuncional.errors %}
@@ -41,6 +44,7 @@
                         {{ form.idFuncional(class="form-control") }}
                     {% endif %}
                 </div>
+                
                 <div class="form-group mt-3">
                     Graduação
                     <select name="select_grad">
@@ -49,6 +53,7 @@
                         {% endfor %}
                     </select>
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.email.label(class="form-label") }}<br>
                     {% if form.email.errors %}
@@ -62,23 +67,28 @@
                         {{ form.email(class="form-control") }}
                     {% endif %}
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.dtNascimento.label(class="form-label") }}<br>
                     {{ form.dtNascimento(class="form-control") }}
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.tel.label(class="form-label") }}<br>
                     {{ form.tel(class="form-control") }}
                 <p style="color: red"><em>*Telefone com DDD sem caracteres especiais. EX.: 21981900000</em></p>
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.senha.label }}<br>
                     {{ form.senha(class="form-control") }}
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.confimacao.label }}<br>
                     {{ form.confimacao(class="form-control") }}
                 </div>
+                
                 <div class="form-group mt-3">
                     {{ form.btCriar(class="btn btn-primary mb-3 w-100") }}
                 </div>
