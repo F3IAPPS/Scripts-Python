@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Estoque: <span style="color: blue; font-weight: bold;">LISTA DE COMPRAS</span></h2><hr>
+
+    <h3><u>Materiais de Escritório</u></h3>
+    <table class="table table-hover; width: 100%">
+        <tr>
+            <th style="width: 50%">ITEM</th>
+            <th style="text-align: center; width: 30%">ESTOQUE ATUAL</th>
+            <th style="text-align: center; width: 30%">PREÇO UNITÁRIO</th>
+        </tr>
+        {% for i in lista %}
+        {% if i.estoque<3 and i.tipo=='Escritório'%}
+        <tr>
+            <td>{{i.item}} {{i.descricao}}, {{i.uni_quant}} {{i.uni_medida}}</td>
+            <td style="text-align: center; color: red">{{i.estoque}}</td>
+            <td style="text-align: center">{{i.preco_uni}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+    <h3><u>Materiais de Higiene e Limpeza</u></h3>
+    <table class="table table-hover" style="width: 100%">
+        <tr>
+            <th style="width: 50%">ITEM</th>
+            <th style="text-align: center; width: 30%">ESTOQUE ATUAL</th>
+            <th style="text-align: center; width: 30%">PREÇO UNITÁRIO</th>
+        </tr>
+        {% for i in lista %}
+        {% if i.estoque<3 and i.tipo=='Hig. e Limp.'%}
+        <tr>
+            <td>{{i.item}} {{i.descricao}}, {{i.uni_quant}} {{i.uni_medida}}</td>
+            <td style="text-align: center; color: red">{{i.estoque}}</td>
+            <td style="text-align: center">{{i.preco_uni}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+    <h3><u>Alimentos e materiais de cozinha</u></h3>
+    <table class="table table-hover" style="width: 100%">
+        <tr>
+            <th style="width: 50%">ITEM</th>
+            <th style="text-align: center; width: 30%">ESTOQUE ATUAL</th>
+            <th style="text-align: center; width: 30%">PREÇO UNITÁRIO</th>
+        </tr>
+        {% for i in lista %}
+        {% if i.estoque<3 and i.tipo=='Alim. e Coz.'%}
+        <tr>
+            <td>{{i.item}} {{i.descricao}}, {{i.uni_quant}} {{i.uni_medida}}</td>
+            <td style="text-align: center; color: red">{{i.estoque}}</td>
+            <td style="text-align: center">{{i.preco_uni}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

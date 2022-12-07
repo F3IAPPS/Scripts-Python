@@ -1,0 +1,38 @@
+body{
+/*background-image: url("imagens/background.png");
+background-color: #e6f0ff;*/
+}
+.card{
+width: 450px;
+border: solid 3px #000066;
+border-radius: 10px;
+background-color: #fff;
+}
+
+.stats{
+background: #e6f7ff !important;
+}
+
+.stats:hover{
+background: #cceeff !important;
+}
+
+.posts{
+font-size:12px;
+color: ;
+}
+
+.number1{
+font-weight:500;
+color: #000066
+}
+
+.followers{
+font-size:12px;
+color: #808080;
+}
+
+.number2{
+font-weight:500;
+color: #000066
+}

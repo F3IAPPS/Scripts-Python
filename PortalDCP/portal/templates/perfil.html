@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-3" style="width: 550px">
+        <div class="d-flex align-items-center">
+            <div class="image me-3">
+                <!--<img src="{{url_for('static',filename='fotos/default.png')}}" class="rounded" width="140" >-->
+
+                <img src="{{foto_perfil}}" class="rounded" width="130">
+
+            </div>
+            <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0" style="color: #000066">
+                    {{ current_user.graduacao }} {{current_user.rg}} {{current_user.nomeGuerra}}
+                </h4>
+                <span style="color: #808080">{{current_user.nome}}</span><br>
+                <span style="color: #808080">Tel. {{current_user.tel}}</span><br>
+                <span style="color: #808080">{{current_user.email}}</span>
+                <div class="p-2 mt-2 d-flex justify-content-between rounded stats">
+                    <div class="d-flex flex-column ms-3 me-3">
+                        <span class="followers">Acesso</span>
+                        <span class="number2">{{current_user.acesso}}</span>
+                    </div>
+                    <div class="d-flex flex-column ms-3 me-3">
+                        <span class="posts">Grupos</span>
+                        {% for i in grupo %}
+                            {% if i != '' %}
+                                {{i}}<br>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="button mt-2 d-flex flex-row align-items-center">
+                    <a class="btn btn-outline-primary w-100"
+                       href="{{url_for('perfil_editar')}}"
+                       role="button">Editar Perfil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% block editar_perfil %}<!--Bloco importante para reservar esse espaço
+    para o form de editar perfil-->
+    {% endblock %}
+{% endblock %}

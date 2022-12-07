@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container w-50 mt-3 mb-3 border rounded-4 shadow-sm bg-light">
+    <div class="row justify-content-md-center mt-3">
+        <h2 class="text-center">Atendimento: CIVIL</h2>
+        <div class="col">
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+
+                <div class="form-group mt-3">
+                    {{ form.qualificacao.label(class="form-label")}}
+                    <select name="select_qualificacao">
+                        {% for i in lista_civil %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group mt-3">
+                    {{ form.nome.label(class="form-label") }} <br>
+                    {{ form.nome(class="form-control") }}
+                </div>
+
+                <div class="form-group mt-3">
+                    {{ form.doc_tipo.label(class="form-label")}}
+                    <select name="select_doc">
+                        {% for i in lista_doc %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+                    {{ form.doc_num(class="form-control", placeholder="Número do documento")}}
+                </div>
+
+                <div class="form-group mt-3">
+                    {{ form.assunto.label(class="form-label") }}
+                    <select name="select_assunto">
+                        {% for i in lista_assunto %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group mt-3">
+                    {{ form.btIniciar(class="btn btn-primary mb-3 w-100") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

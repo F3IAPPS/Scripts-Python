@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ps-3 pe-3">
+  <div class="container-fluid">
+    <!--<a class="navbar-brand" href="/">DCP</a>-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if current_user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="/"><b>DCP</b></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <b>Post</b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{ url_for('criarPost') }}">Criar Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="dropdown-item" href="#">Editar Post</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+              <a class="dropdown-item" href="#">Excluir Post</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <b>Equipe</b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+              <a class="dropdown-item" href="{{ url_for('dcp') }}">DCP</a>
+            </li>
+            <li class="nav-item">
+              <a class="dropdown-item" href="{{ url_for('conferente') }}">Conferentes</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <b>Atendimento</b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{ url_for('atd_civil') }}">Civil</a>
+            </li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{ url_for('busca_militar') }}">Militar</a>
+            </li>
+            <li class="nav-item">
+              <a class="dropdown-item" href="{{ url_for('atd_encerrar') }}">Encerramento</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+              <a class="dropdown-item" href="{{ url_for('atd_encerrados') }}">Lista: Encerrados</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <b>Estoque</b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('estoque_novo')}}">Cadastrar novo item</a>
+            </li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('estoque_entrada')}}">Entrada</a>
+            </li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('estoque_saida')}}">Saída</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('l_completa')}}">Lista: <b>Completa</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('l_escritorio')}}">Lista: <b>Escritório</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('l_limpeza')}}">Lista: <b>Higiene/Limpeza</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('l_cozinha')}}">Lista: <b>Alimentos/Cozinha</b></a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{url_for('l_compras')}}">Lista de compras</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sobre"><b>Sobre</b></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('perfil')}}"><b>Perfil</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('sair')}}"><b>Sair</b></a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('logar') }}">Logar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('criarConta') }}">Criar Conta</a>
+        </li>
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</nav>

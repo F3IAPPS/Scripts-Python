@@ -1,0 +1,17 @@
+Imports no terminal
+pip install flask
+pip install flask-wtf
+####gerar a chave de segurança####
+python
+import secrets
+secrets.token_hex(16)
+exit()
+##fim##
+pip install email_validator
+pip install flask_sqlalchemy
+pip install flask_bcrypt
+pip install flask_login
+pip install PILLOW
+###criação do banco####
+1. criar um arquivo python temporário para ex. test.py que será excluído logo após a primeira execução
+2.

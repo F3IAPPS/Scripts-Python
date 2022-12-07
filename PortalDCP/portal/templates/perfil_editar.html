@@ -1,0 +1,149 @@
+{% extends 'perfil.html' %}
+
+{% block editar_perfil %}
+<hr>
+
+<div class="visually-hidden-focusable">Campo oculto</div>
+
+<div class="container w-50 mt-3 mb-3 border rounded-4 shadow-sm bg-light">
+    <div class="row justify-content-md-center mt-3">
+        <h2 class="text-center">EDITAR PERFIL</h2>
+        <div class="col">
+            <!-- enctype no form é obrigatório se hover campo de arquivo -->
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <div class="form-group mt-3">
+                    Graduação
+                    <select name="select_grad">
+                        {% for i in graduacao %}
+                            <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    {{ form.nomeGuerra.label(class="form-label") }}<br>
+                    {{ form.nomeGuerra(class="form-control") }}
+                </div>
+                <div class="form-group mt-3">
+                    {{ form.email.label(class="form-label") }}<br>
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for erro in form.email.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.email(class="form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-group mt-3">
+                    {{ form.tel.label(class="form-label") }}<br>
+                    {{ form.tel(class="form-control") }}
+                <p style="color: red"><em>*Telefone com DDD sem caracteres especiais. EX.: 21981900000</em></p>
+                </div>
+                <div class="form-group mt-3">
+                    {{ form.unidade.label(class="form-label") }}<br>
+                    {{ form.unidade(class="form-control") }}
+                </div>
+                <div class="form-group mt-3">
+                    {{ form.acesso.label(class="form-label") }}<br>
+                    {{ form.acesso(class="form-select") }}
+                </div>
+
+                <p class="mt-3">Grupos:</p>
+                <div class="form-check">
+                    {% if 'DCP' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="DCP" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="DCP" name="checkGrupo">
+                    {% endif %}
+                    DCP<br>
+
+                    {% if 'OFICIAIS' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="OFICIAIS" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="OFICIAIS" name="checkGrupo">
+                    {% endif %}
+                    OFICIAIS<br>
+
+                    {% if 'ALMOXARIFADO' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="ALMOXARIFADO" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="ALMOXARIFADO" name="checkGrupo">
+                    {% endif %}
+                    ALMOXARIFADO<br>
+
+                    {% if 'SECRETARIA' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="SECRETARIA" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="SECRETARIA" name="checkGrupo">
+                    {% endif %}
+                    SECRETARIA<br>
+
+                    {% if 'TESOURARIA' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="TESOURARIA" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="TESOURARIA" name="checkGrupo">
+                    {% endif %}
+                    SECRETARIA<br>
+
+                    {% if 'TELEMATICA' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="TELEMATICA" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="TELEMATICA" name="checkGrupo">
+                    {% endif %}
+                    TELEMÁTICA<br>
+
+                    {% if 'DIGITADORES' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="DIGITADORES" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="DIGITADORES" name="checkGrupo">
+                    {% endif %}
+                    DIGITADORES<br>
+
+                    {% if 'PROTOCOLO' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="PROTOCOLO" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="PROTOCOLO" name="checkGrupo">
+                    {% endif %}
+                    PROTOCOLO<br>
+
+                    {% if 'CONFERENTES' in current_user.grupo %}
+                        <input class="form-check-input" type="checkbox" value="CONFERENTES" name="checkGrupo" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="CONFERENTES" name="checkGrupo">
+                    {% endif %}
+                    CONFERENTES<br>
+                </div>
+
+                <div class="form-group mt-3">
+                    {{ form.foto_perfil.label(class="form-label") }}
+                    {{ form.foto_perfil(class="form-control-file") }}
+                    {% if form.foto_perfil.errors %}
+                        {% for erro in form.foto_perfil.errors %}
+                            <br><span class="text-danger">{{ erro }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <hr>
+                <div class="form-group mt-3">
+                    <b>{{form.ativo.label}}</b>
+                    {{form.ativo(style="list-style-type: none")}}
+                    <span>
+                        <b style="color: red">* ATENÇÃO!</b>
+                        <em>A opção <b style="color: red">"NÃO"</b> impossibilita o login do usuário.</em>
+                    </span>
+                </div>
+                <hr>
+
+                <div class="form-group mt-3">
+                    {{ form.btEditar(class="btn btn-primary mb-3 w-100") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

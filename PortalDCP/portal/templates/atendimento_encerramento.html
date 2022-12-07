@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Atendimento: <spam style="color: blue; font-weight: bold;">ENCERRAMENTO DE ATENDIMENTOS</spam></h2><hr>
+        <table class="table table-hover">
+            <tr>
+                <th>NOME</th>
+                <th style="text-align: center">QUALIFICAÇÃO</th>
+                <th style="text-align: center">INÍCIO ATEND.</th>
+                <th style="text-align: center">ASSUNTO</th>
+                <th style="text-align: center">ATENDENTE</th>
+                <th style="text-align: center">ENCERRAR</th>
+            </tr>
+            {% for i in lista %}
+            {% if i.solucao==None %}
+            <tr>
+                <form action="" method="POST">
+                {{ form.csrf_token }}
+                    <td>
+                        {{ i.qualificacao }}
+                    </td>
+
+                    <td>
+                        {{ i.nome }}
+                    </td>
+
+                    <td style="text-align: center">
+                        {% print(i.dt_ini.strftime("%x - %X")) %}
+                    </td>
+
+                    <td style="text-align: center">
+                        {{ i.assunto }}
+                    </td>
+
+                    <td style="text-align: center">
+                        {{i.rg_atendente}}
+                    </td>
+
+                    <td>
+                        <input type="hidden" name="id_atendimento" value="{{i.id}}">
+                        <input type="submit" class="btn btn-outline-success btn-sm w-100" value="SOLUÇÃO">
+                    </td>
+                </form>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Estoque: <spam style="color: blue; font-weight: bold;">Novo item</spam></h2><hr>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label"><b>{{form.tipo.label}}</b></label>
+            <div class="col-sm-10">
+                <select class="form-select" name="select_tipo">
+                    <option value="Escritório">Escritório</option>
+                    <option value="Hig. e Limp.">Higiene e Limpeza</option>
+                    <option value="Alim. e Coz.">Alimentos e Cozinha</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label"><b>{{form.item.label}}</b></label>
+            <div class="col-sm-10">
+                {{form.item(class="form-control", type="text", placeholder="Tesoura, Sal, Álcool...")}}
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label"><b>{{form.descricao.label}}</b></label>
+            <div class="col-sm-10">
+                {{form.descricao(class="form-control", type="text", placeholder="Cor, marca, tamanho")}}
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label"><b>{{form.uni_medida.label}}</b></label>
+            <div class="col-sm-10">
+                <select class="form-select" name="select_uni_medida">
+                    <option value="Uni.">Unidade</option>
+                    <option value="unid. p/ embalagem">Embalagem</option>
+                    <option value="Kg">Quilos</option>
+                    <option value="g">Gramas</option>
+                    <option value="l">Litros</option>
+                    <option value="ml">Mililitros</option>
+                    <option value="m">Metros</option>
+                    <option value="cm">Centímetros</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label"><b>{{form.uni_quant.label}}</b></label>
+            <div class="col-sm-10">
+                {{form.uni_quant(class="form-control", placeholder="Quantidade por unid. de medida")}}
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary w-100" value="ADICIONAR">
+    </form>
+</div>
+
+{% endblock %}
+

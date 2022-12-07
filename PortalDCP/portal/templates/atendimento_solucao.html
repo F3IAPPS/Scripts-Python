@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Atendimento: <spam style="color: blue; font-weight: bold;">SOLUÇÃO</spam></h2><hr>
+        <form action="" method="POST">
+        {{ form.csrf_token }}
+            <h5>{{ atd.qualificacao }}, {{ atd.nome }}</h5>
+            <p><b>ASSUNTO:</b> {{ atd.assunto }}</p>
+            Descreva todas as ações relevantes para solução do atendimento
+            <textarea class="form-control" name="solucao" rows="4" required></textarea><br>
+            <input type="submit" class="btn btn-success w-100" value="ENCERRAR">
+        </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Estoque: <spam style="color: blue; font-weight: bold;">MATERIAIS DE ESCRITÓRIO</spam></h2><hr>
+        <table class="table table-hover">
+            <tr>
+                <th>ITEM <small style="color: grey">(Total: {{ tamanho }} itens)</small></th>
+                <th style="text-align: center">ESTOQUE ATUAL</th>
+                <th style="text-align: center">PREÇO UNITÁRIO</th>
+            </tr>
+            {% for i in lista %}
+            <tr>
+                <td>{{i.item}} {{i.descricao}}, {{i.uni_quant}} {{i.uni_medida}}</td>
+                {% if i.estoque<3 %}
+                    <td style="text-align: center; color: red">{{i.estoque}}</td>
+                {% else %}
+                    <td style="text-align: center">{{i.estoque}}</td>
+                {% endif %}
+                <td style="text-align: center">{{i.preco_uni}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+    </form>
+</div>
+
+{% endblock %}

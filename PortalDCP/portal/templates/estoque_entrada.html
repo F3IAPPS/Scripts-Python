@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Estoque: <spam style="color: blue; font-weight: bold;">ENTRADA</spam></h2><hr>
+        <table class="table table-hover">
+            <tr>
+                <th>ITEM</th>
+                <th style="text-align: center">ESTOQUE ATUAL</th>
+                <th style="text-align: center">PREÇO UNITÁRIO</th>
+                <th style="text-align: center">QUANTIDADE</th>
+                <th style="text-align: center">ADICIONAR</th>
+            </tr>
+            {% for i in lista %}
+            <tr>
+                <form action="" method="POST">
+                {{ form.csrf_token }}
+                    <td>{{i.item}}<br>{{i.descricao}}, {{i.uni_quant}} {{i.uni_medida}}</td>
+                    <td style="text-align: center">{{i.estoque}}</td>
+                    <td>
+                        <input name="preco" class="form-control" style="text-align: right" value="{{i.preco_uni}}">
+                    </td>
+                    <td>
+                        <input type="hidden" name="id" value="{{i.id}}">
+                        <input name="quantidade" value="0" class="form-control" style="text-align: right">
+                    </td>
+                    <td>
+                        <input type="submit" class="btn btn-outline-success btn-sm" value="ADICIONAR">
+                    </td>
+                </form>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</div>
+
+{% endblock %}

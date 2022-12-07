@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+
+.post{
+padding: 20px;
+margin: auto;
+float: center;
+margin-top: 10px;
+margin-bottom: 10px;
+width: 90%;
+background: #e6f2ff;
+border-radius: 15px;
+}
+hr{
+border: 2px solid grey;
+</style>
+<div class="post">
+        <p class="text-end"><b>
+        {{current_user.graduacao}}
+        {{current_user.nomeGuerra}} -
+        {{current_user.unidade}}
+        </b></p>
+    <p><b style="font-size: 1.7em">Assunto</b> - <em>Publicado em 10/11/22</em></p>
+        <hr>
+    <p>
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo copo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+    </p>
+    <p>Link: <a href="www.google.com">www.google.com</a></p>
+</div>
+
+<div class="post">
+        <p class="text-end"><b>
+        {{current_user.graduacao}}
+        {{current_user.nomeGuerra}} -
+        {{current_user.unidade}}
+        </b></p>
+    <p><b style="font-size: 1.7em">Lista Força</b> - <em>Publicado em 10/11/22</em></p>
+        <hr>
+    <p>
+        Corpo corpo corpo corpo corpo corpo corpo para corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo corpo
+        Corpo corpo corpo corpo corpo corpo corpo pato corpo corpo corpo corpo corpo corpo corpo corpo
+    </p>
+    <p>Link: <a href="www.google.com">www.youtube.com</a></p>
+</div>
+
+{% endblock %}

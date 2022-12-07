@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Atendimento: <spam style="color: blue; font-weight: bold;">ENCERRADOS</spam></h2><hr>
+    {% for i in atd %}
+    {% if i.solucao %}
+    <h5>{{ i.qualificacao }}, {{ i.nome }}</h5>
+    <p><b>Início do atendimento: </b>{% print(i.dt_ini.strftime("%x - %X")) %}<br>
+    <b>Encerramento do atendimento: </b>{% print(i.dt_fim.strftime("%x - %X")) %}<br>
+    <b>Atendente:</b>{{ i.rg_atendente}}</p>
+    <b>SOLUÇÃO:</b>
+    {{ i.solucao }}
+    <hr>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}
